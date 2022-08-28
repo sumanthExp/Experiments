@@ -10,9 +10,9 @@ import {
     FirstPersonControls,
     Sparkles
   } from "@react-three/drei";
-import { VRCanvas, useXR, useXREvent, DefaultXRControllers, useController } from "@react-three/xr";
+import { useXR, useXREvent, Controllers, useController } from "@react-three/xr";
 import { SpotLightHelper, PointLightHelper, DoubleSide, NoToneMapping} from "three";
-import { useFrame, addEffect } from "@react-three/fiber";
+import { useFrame, addEffect, Canvas } from "@react-three/fiber";
 import { Globals } from "@react-spring/shared";
 
 import Grid from "./components/Grid";
@@ -97,7 +97,7 @@ const Lights = () => {
 
 const WebGL = () => {
   return (
-    <VRCanvas
+    <Canvas
       dpr={[1, 2]}
       gl={{
         antialias: true,
@@ -121,8 +121,8 @@ const WebGL = () => {
         
       </Suspense>
       <XR />
-      <DefaultXRControllers />
-    </VRCanvas>
+      <Controllers />
+    </Canvas>
   );
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { VRCanvas, DefaultXRControllers, RayGrab } from "@react-three/xr";
+import { Controllers, RayGrab } from "@react-three/xr";
 import { Sky, Plane, Box, OrbitControls } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, Canvas } from "@react-three/fiber";
 
 function PlainBox(){
     return(
-        <VRCanvas shadowMap>
+        <Canvas>
             <Sky />
             <Plane
                 args={[100, 100]}
@@ -16,14 +16,14 @@ function PlainBox(){
                 <meshStandardMaterial attach="material" color="#fff" />
             </Plane>
             <ambientLight intensity={0.1} />
-            <DefaultXRControllers />
+            <Controllers />
             <RayGrab>
                 <Box rotation={[0, 1, 2]}>
                 <meshStandardMaterial color={'blue'} />
                 </Box>
             </RayGrab>
         
-        </VRCanvas>
+        </Canvas>
     )
 }
 
